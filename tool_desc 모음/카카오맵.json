@@ -1,0 +1,91 @@
+{
+  "id": "3",
+  "name": "카카오맵",
+  "description": "카카오맵을 활용해 지정한 지역 기준으로 다양한 장소를 탐색하고 길찾기까지 도와줍니다.\n► 입력한 장소나 키워드를 기준으로 맛집, 카페, 명소, 문화 공간 등을 추천받을 수 있습니다.\n► 도보, 자전거, 대중교통 등 이동 수단에 따라 목적지까지의 최적 경로를 안내받을 수 있습니다.",
+  "developerName": "PlayMCP",
+  "starterMessages": [
+    "성수동 브런치 카페 추천해줘",
+    "판교에서 뚝섬까지 자전거로 가면 얼마나 걸려?",
+    "판교역 근처 약국 알려줘"
+  ],
+  "formattedTools": [
+    {
+      "name": "GetWalkDirections",
+      "description": "Provides walking route guidance within South Korea.\n\n# Response Generation\n Follow the rules below when generating a response:\n - Write the answer in the language used in the user’s question. If the question is in Korean, answer in Korean.\n - If there is no error, include the response *as-is* without altering its structure.\n - Convert large units to more readable formats where appropriate:\n   - 26720 meters → 26.7 km\n   - 25388 seconds → 7 hours 3 minutes\n - `{instruction}` is a single sentence that guides the user based on the search result.\n - Include a \"카카오맵\" link.\n\n## Response Example\n{instruction}\n- 거리: 42.5km\n- 소요시간: 약 2시간 18분\n상세 경로는 [카카오맵](링크) 을 통해 확인하세요.\n",
+      "parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Starting place name",
+          "required": true
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "Ending place name",
+          "required": true
+        },
+        {
+          "name": "routeMode",
+          "type": "\"RECOMMENDATION\" | \"SHORTEST_TIME\"",
+          "description": "Defines the criteria for route selection based on user preference.\nThe default value is `RECOMMENDATION`.\n",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "GetBikeDirections",
+      "description": "Provides bicycle route guidance within South Korea.  \n\n# Response Generation\n Follow the rules below when generating a response:\n - Write the answer in the language used in the user’s question. If the question is in Korean, answer in Korean.\n - If there is no error, include the response *as-is* without altering its structure.\n - Convert large units to more readable formats where appropriate:\n   - 26720 meters → 26.7 km\n   - 25388 seconds → 7 hours 3 minutes\n - `{instruction}` is a single sentence that guides the user based on the search result.\n - Include a \"카카오맵\" link.\n\n## Response Example\n{instruction}\n- 거리: 24.4km\n- 소요시간: 약 41분\n상세 경로는 [카카오맵](링크) 을 통해 확인하세요.\n",
+      "parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Starting place name",
+          "required": true
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "Ending place name",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "GetPublicTransitDirections",
+      "description": "Provides public transportation route guidance within South Korea.\nRoutes are divided into intra-city transportation (public transit) and intercity transportation.\n\n# Response Generation\nFollow the rules below when generating a response:\n- Write the answer in the language used in the user’s question. If the question is in Korean, answer in Korean.\n- If there is no error, include the response *as-is* without altering its structure.\n- Convert large units to more readable formats where appropriate:\n  - 26720 meters → 26.7 km\n  - 25388 seconds → 7 hours 3 minutes\n- `{instruction}` is a single sentence that guides the user based on the search result.\n- Include a \"카카오맵\" link.\n\n## Response Example\n{instruction}\n- 출발지: 판교역 신분당선\n- 도착지: 을지로입구역 2호선\n- 거리: 24.4km\n- 소요시간: 약 41분\n상세 경로는 [카카오맵](링크) 을 통해 확인하세요.\n",
+      "parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Starting place name",
+          "required": true
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "Ending place name",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "SearchPlaceByKeywordOpen",
+      "description": "Searches for places in South Korea using keywords extracted from user queries.\n\n# Supported Keyword Types:\n- Region name (e.g., 성수동)\n- Place name (e.g., 스타벅스, 판교역)\n- Business type or category (e.g., 약국, 카페)\n- Menu item\n\n# Keyword Extraction\nFollow the rules below when extracting keywords:\n- A region name is a required keyword. If it is not included, ask the user to input it again. \n- If no place search results are found, extract the keyword again and retry the search.\n\n## Extraction Examples \nuser query: \"판교역 3번출구 카페 추천해줘\"\nkeyword: \"판교역 3번출구 카페\"\nhighlightedRegion: \"판교\"\n\nuser query: \"성수동에 있는 약국 알려줘\"\nkeyword: \"성수동 약국\"\nhighlightedRegion: \"성수\"\n\n# Response Generation\nFollow the rules below when generating a response:\n- If there is no error, include the response *as-is* without altering its structure.\n- If the user requests places with high ratings, sort the results by rating in descending order.\n- `{instruction}` is a single sentence that guides the user based on the search result.\n- Include the phrases “자세히 보기” with links.\n\n## Response Example\n{instruction}\n\n1. 스타벅스 판교역힐스테이트점\n- 주소: 경기 성남시 분당구 판교역로 136 판교힐스테이트\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n2. 공차 판교역점\n- 주소: 경기 성남시 분당구 판교역로192번길\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n3. 디저트39 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136 지하1층 1107\n- 카테고리 : 디저트 카페\n- [자세히 보기](링크)\n\n4. 카페베네 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크) \n\n5. 투썸플레이스 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n\uD83D\uDCCD 카카오맵 기준입니다.\n",
+      "parameters": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "description": "A core keyword used to search for a place.  \nExtract and combine meaningful terms from the user utterance such as place names, region names, or types of facilities.  \nExamples: \"판교역 3번출구 ATM\", \"성수동 약국\"\n",
+          "required": true
+        },
+        {
+          "name": "highlightedRegion",
+          "type": "\"이태원\" | \"성수\" | \"신촌\" | \"강남\" | \"판교\"",
+          "description": "Extracted region inferred from the context of the user’s utterance, if applicable.\n",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

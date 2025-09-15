@@ -1,0 +1,99 @@
+[
+  {
+    "user_message": "T1 출국장 혼잡도 알려줘.",
+    "tool_call": {
+      "tool": "get_departure_congestion",
+      "arguments": {
+        "terminal": "T1"
+      }
+    },
+    "tool_call_result": {
+      "terminal": "T1",
+      "status": "보통",
+      "waiting_people": 150,
+      "estimated_waiting_time_min": 20
+    }
+  },
+  {
+    "user_message": "오늘 인천에서 도쿄로 가는 항공편 정보 있어?",
+    "tool_call": {
+      "tool": "get_flight_departures",
+      "arguments": {
+        "to_airport_code": "NRT",
+        "date": "20250912"
+      }
+    },
+    "tool_call_result": {
+      "flights": [
+        {
+          "flight_id": "JL954",
+          "airline": "Japan Airlines",
+          "scheduled_time": "09:00",
+          "status": "On Time"
+        },
+        {
+          "flight_id": "KE703",
+          "airline": "Korean Air",
+          "scheduled_time": "11:30",
+          "status": "Cancelled"
+        }
+      ]
+    }
+  },
+  {
+    "user_message": "뉴욕에서 오는 항공편 상태 좀 알려줘.",
+    "tool_call": {
+      "tool": "get_flight_arrivals",
+      "arguments": {
+        "from_airport_code": "JFK",
+        "date": "20250912"
+      }
+    },
+    "tool_call_result": {
+      "flights": [
+        {
+          "flight_id": "AA293",
+          "airline": "American Airlines",
+          "scheduled_time": "15:45",
+          "status": "Delayed"
+        },
+        {
+          "flight_id": "DL159",
+          "airline": "Delta Airlines",
+          "scheduled_time": "17:10",
+          "status": "Landed"
+        }
+      ]
+    }
+  },
+  {
+    "user_message": "T2 주차장 상황 어때?",
+    "tool_call": {
+      "tool": "get_parking_status",
+      "arguments": {
+        "terminal": "T2"
+      }
+    },
+    "tool_call_result": {
+      "terminal": "T2",
+      "available_spaces": 500,
+      "status": "Full"
+    }
+  },
+  {
+    "user_message": "LAX 공항에 대한 정보가 필요해.",
+    "tool_call": {
+      "tool": "get_destination_info",
+      "arguments": {
+        "airport_code": "LAX"
+      }
+    },
+    "tool_call_result": {
+      "airport_code": "LAX",
+      "city": "Los Angeles",
+      "country": "United States",
+      "timezone": "PST",
+      "popular_routes": ["JFK", "SFO", "ORD"]
+    }
+  }
+]

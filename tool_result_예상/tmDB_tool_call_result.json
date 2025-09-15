@@ -1,0 +1,84 @@
+[
+  {
+    "user_message": "가장 인기 있는 영화 목록을 보여줘.",
+    "tool_call": {
+      "tool": "tmdb.getPopularMovies",
+      "arguments": {
+        "page": 1
+      }
+    },
+    "tool_call_result": {
+      "page": 1,
+      "results": [
+        {
+          "title": "Oppenheimer",
+          "release_date": "2023-07-21",
+          "vote_average": 8.5
+        },
+        {
+          "title": "Barbie",
+          "release_date": "2023-07-21",
+          "vote_average": 7.3
+        }
+      ],
+      "total_pages": 500,
+      "total_results": 10000
+    }
+  },
+  {
+    "user_message": "Inception 영화의 정보를 알려줘.",
+    "tool_call": {
+      "tool": "tmdb.getMovieDetails",
+      "arguments": {
+        "movie_id": 27205
+      }
+    },
+    "tool_call_result": {
+      "title": "Inception",
+      "release_date": "2010-07-16",
+      "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+      "vote_average": 8.3
+    }
+  },
+  {
+    "user_message": "The Witcher 시리즈의 정보를 알려줘.",
+    "tool_call": {
+      "tool": "tmdb.getTVShowDetails",
+      "arguments": {
+        "tv_id": 71912
+      }
+    },
+    "tool_call_result": {
+      "name": "The Witcher",
+      "first_air_date": "2019-12-20",
+      "overview": "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.",
+      "vote_average": 8.2
+    }
+  },
+  {
+    "user_message": "가장 인기 있는 TV 프로그램 목록을 보여줘.",
+    "tool_call": {
+      "tool": "tmdb.getPopularTVShows",
+      "arguments": {
+        "page": 1
+      }
+    },
+    "tool_call_result": {
+      "page": 1,
+      "results": [
+        {
+          "name": "Stranger Things",
+          "first_air_date": "2016-07-15",
+          "vote_average": 8.6
+        },
+        {
+          "name": "The Mandalorian",
+          "first_air_date": "2019-11-12",
+          "vote_average": 8.5
+        }
+      ],
+      "total_pages": 200,
+      "total_results": 4000
+    }
+  }
+]

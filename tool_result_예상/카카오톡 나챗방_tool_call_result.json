@@ -1,0 +1,28 @@
+[
+  {
+    "user_message": "나에게 '회의 준비 완료'라는 메시지를 카카오톡으로 보내줘.",
+    "tool_call": {
+      "tool": "functions.MemoChat",
+      "arguments": {
+        "message": "회의 준비 완료"
+      }
+    },
+    "tool_call_result": {
+      "status": "success",
+      "message": "Message sent to yourself: 회의 준비 완료"
+    }
+  },
+  {
+    "user_message": "오늘 할 일 목록을 나에게 카톡으로 보내줘.",
+    "tool_call": {
+      "tool": "functions.MemoChat",
+      "arguments": {
+        "message": "오늘 할 일: 1. 보고서 작성 2. 팀 회의 3. 운동"
+      }
+    },
+    "tool_call_result": {
+      "status": "success",
+      "message": "Message sent to yourself: 오늘 할 일: 1. 보고서 작성 2. 팀 회의 3. 운동"
+    }
+  }
+]
