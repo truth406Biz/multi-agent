@@ -5,12 +5,6 @@
       "name": "카카오톡 나챗방",
       "description": "카카오톡 나챗방에 텍스트 메시지를 보낼 수 있습니다.\n► 할 일, 다짐, 메모 등 자유로운 내용을 메시지 형태로 남길 수 있습니다.\n► “~라고 나챗방에 보내줘”와 같은 요청 문구를 사용하면, 해당 문장을 자동으로 나와의 채팅에 전송합니다.\n► 특정 키워드나 명령어를 입력하면, AI가 적절한 텍스트를 생성해 나와의 채팅에 대신 보내줄 수도 있습니다. 예: “재밌는 아재개그 나챗방에 보내줘”",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/nn9AZ1809Vty6rf1SK1IRFnySR8Z2KAvJpKqlozmQhoghkrKwVj5PI0rRw25VjQZTui93XIASgp09IEBnKdzr1.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/nn9AZ1809Vty6rf1SK1IRFnySR8Z2KAvJpKqlozmQhoghkrKwVj5PI0rRw25VjQZTui93XIASgp09IEBnKdzr1.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "\"빨리 퇴근하자\"라고 나챗방에 보내줘",
         "오늘의 쓸데없는 정보 하나 나챗방에 보내줘",
@@ -29,24 +23,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "673",
-      "totalToolCallCount": "1613",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "3",
       "name": "카카오맵",
       "description": "카카오맵을 활용해 지정한 지역 기준으로 다양한 장소를 탐색하고 길찾기까지 도와줍니다.\n► 입력한 장소나 키워드를 기준으로 맛집, 카페, 명소, 문화 공간 등을 추천받을 수 있습니다.\n► 도보, 자전거, 대중교통 등 이동 수단에 따라 목적지까지의 최적 경로를 안내받을 수 있습니다.",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/1SCKiFhoXf0ODPn9oxb7b5MKGOVNEBv99PUk4hJJxPBZQf4hxJrcR1fcjwRsaPC4q9tjBFPfkwOCwrUFY7weX8.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/1SCKiFhoXf0ODPn9oxb7b5MKGOVNEBv99PUk4hJJxPBZQf4hxJrcR1fcjwRsaPC4q9tjBFPfkwOCwrUFY7weX8.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "성수동 브런치 카페 추천해줘",
         "판교에서 뚝섬까지 자전거로 가면 얼마나 걸려?",
@@ -115,7 +98,7 @@
         },
         {
           "name": "SearchPlaceByKeywordOpen",
-          "description": "Searches for places in South Korea using keywords extracted from user queries.\n\n# Supported Keyword Types:\n- Region name (e.g., 성수동)\n- Place name (e.g., 스타벅스, 판교역)\n- Business type or category (e.g., 약국, 카페)\n- Menu item\n\n# Keyword Extraction\nFollow the rules below when extracting keywords:\n- A region name is a required keyword. If it is not included, ask the user to input it again. \n- If no place search results are found, extract the keyword again and retry the search.\n\n## Extraction Examples \nuser query: \"판교역 3번출구 카페 추천해줘\"\nkeyword: \"판교역 3번출구 카페\"\nhighlightedRegion: \"판교\"\n\nuser query: \"성수동에 있는 약국 알려줘\"\nkeyword: \"성수동 약국\"\nhighlightedRegion: \"성수\"\n\n# Response Generation\nFollow the rules below when generating a response:\n- If there is no error, include the response *as-is* without altering its structure.\n- If the user requests places with high ratings, sort the results by rating in descending order.\n- `{instruction}` is a single sentence that guides the user based on the search result.\n- Include the phrases “자세히 보기” with links.\n\n## Response Example\n{instruction}\n\n1. 스타벅스 판교역힐스테이트점\n- 주소: 경기 성남시 분당구 판교역로 136 판교힐스테이트\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n2. 공차 판교역점\n- 주소: 경기 성남시 분당구 판교역로192번길\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n3. 디저트39 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136 지하1층 1107\n- 카테고리 : 디저트 카페\n- [자세히 보기](링크)\n\n4. 카페베네 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크) \n\n5. 투썸플레이스 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n\uD83D\uDCCD 카카오맵 기준입니다.\n",
+          "description": "Searches for places in South Korea using keywords extracted from user queries.\n\n# Supported Keyword Types:\n- Region name (e.g., 성수동)\n- Place name (e.g., 스타벅스, 판교역)\n- Business type or category (e.g., 약국, 카페)\n- Menu item\n\n# Keyword Extraction\nFollow the rules below when extracting keywords:\n- A region name is a required keyword. If it is not included, ask the user to input it again. \n- If no place search results are found, extract the keyword again and retry the search.\n\n## Extraction Examples \nuser query: \"판교역 3번출구 카페 추천해줘\"\nkeyword: \"판교역 3번출구 카페\"\nhighlightedRegion: \"판교\"\n\nuser query: \"성수동에 있는 약국 알려줘\"\nkeyword: \"성수동 약국\"\nhighlightedRegion: \"성수\"\n\n# Response Generation\nFollow the rules below when generating a response:\n- If there is no error, include the response *as-is* without altering its structure.\n- If the user requests places with high ratings, sort the results by rating in descending order.\n- `{instruction}` is a single sentence that guides the user based on the search result.\n- Include the phrases “자세히 보기” with links.\n\n## Response Example\n{instruction}\n\n1. 스타벅스 판교역힐스테이트점\n- 주소: 경기 성남시 분당구 판교역로 136 판교힐스테이트\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n2. 공차 판교역점\n- 주소: 경기 성남시 분당구 판교역로192번길\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n3. 디저트39 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136 지하1층 1107\n- 카테고리 : 디저트 카페\n- [자세히 보기](링크)\n\n4. 카페베네 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크) \n\n5. 투썸플레이스 판교역점\n- 주소: 경기 성남시 분당구 판교역로 136\n- 카테고리 : 카페\n- [자세히 보기](링크)\n\n📍 카카오맵 기준입니다.\n",
           "parameters": [
             {
               "name": "keyword",
@@ -131,24 +114,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "596",
-      "totalToolCallCount": "1398",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "23",
       "name": "학교 급식 정보",
       "description": "전국의 초/중/고등학교 및 특수학교 정보를 조회할 수 있습니다.\n이 MCP는 \"나이스 교육정보 개방 포털\"의 API를 사용합니다.\n\n학교 방학 중에는 급식 정보가 제공되지 않을 수 있으니 참고하세요.",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/TNDHeUXMlVQKWNrT00PcddBofayjtQsxObTYZhUHe4LM01zG0iTDf5fldCeFXhyDzLv3LoU74yUFg97TjGcJnB.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/TNDHeUXMlVQKWNrT00PcddBofayjtQsxObTYZhUHe4LM01zG0iTDf5fldCeFXhyDzLv3LoU74yUFg97TjGcJnB.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "압구정초등학교의 오늘 점심 메뉴가 뭐야?",
         "경기고등학교의 이번주 점심 식단을 알려줘",
@@ -262,24 +234,13 @@
           "description": "오늘의 날짜를 조회합니다. 날짜 형식은 YYYYMMDD 입니다.",
           "parameters": []
         }
-      ],
-      "monthlyToolCallCount": "465",
-      "totalToolCallCount": "465",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "20",
       "name": "날씨 예보 조회",
       "description": "공공데이터 포털에서 제공하는 단기 예보 및 미세먼지 정보를 활용해 지역 기준으로 날씨정보를 알려줍니다.",
       "developerName": "프람트테크놀로지",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/7NUyeRPhcllVthY712V3nrJtP6DHbn1FhGoYRKRV9WKaYuLlcwlsx6ZIA81908RIObNHsERwaRW1EMgZ1Nmifo.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/7NUyeRPhcllVthY712V3nrJtP6DHbn1FhGoYRKRV9WKaYuLlcwlsx6ZIA81908RIObNHsERwaRW1EMgZ1Nmifo.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "중구 효자동의 날씨 실황값을 알수있을까?",
         "내일 서울 날씨 알려줘",
@@ -364,24 +325,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "388",
-      "totalToolCallCount": "389",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "4",
       "name": "멜론",
       "description": "지금은 Beta 서비스로 제공합니다.\n\n► 멜론을 통해 아티스트, 앨범, 곡에 대한 다양한 정보를 확인할 수 있습니다.\n► 멜론에서 제공하는 차트와 키워드를 기반으로 음악과 플레이리스트를 검색 할 수 있습니다.\n► 내가 좋아하거나 들었던 음악을 기반으로 개인화된 음악 추천이 가능합니다.\n► '~재생해줘' 라고 하면 해당 디바이스에서 멜론앱을 통해 바로 감상이 가능합니다.",
       "developerName": "Kakao Entertainment",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/IGP0XFzqIQLe2rIyAfFwMS2Jf05abhKGds43dSlZgHh3dBiSUuTrXBl1xvOLYasrPv3lPXFgyavFqxsXSxlQdO.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/IGP0XFzqIQLe2rIyAfFwMS2Jf05abhKGds43dSlZgHh3dBiSUuTrXBl1xvOLYasrPv3lPXFgyavFqxsXSxlQdO.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "운동할 때 듣기 좋은 노래들 틀어줘!",
         "작년 오늘 내가 들었던 곡은 뭐였을까?",
@@ -975,24 +925,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "329",
-      "totalToolCallCount": "1359",
-      "authConfigSummary": {
-        "type": "OAUTH"
-      }
+      ]
     },
     {
       "id": "31",
       "name": "미국 주식 정보",
       "description": "미국 주식 종목들에 대해 실시간으로 분석하고 조회합니다.\n▶ 매수/매도 의견, 최신 금융 뉴스, 주가 추이까지 한번에 확인하여 시장의 흐름을 놓치지 마세요.\n▶ 주가, 재무제표, 기업 정보 등 핵심적인 투자 정보를 제공하여 깊이 있는 분석을 돕습니다.\n▶ 미래 주가 = 현재 + 과거 의 정보 분석 입니다.\n▶ 이 MCP 는 Yahoo Finance Data 를 사용합니다. 사용량에 따라서 일시적으로 조회되지 않을 수 있습니다",
       "developerName": "thesockerr@gmail.com",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/8lDolB9G7PrRHX7j5jObRqD2zIxo8VRQq6aVGZ52sUtOBJUZovfFFVIK71DyCrmhRoFBA8wKxwSWIdR8tZWEpH.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/8lDolB9G7PrRHX7j5jObRqD2zIxo8VRQq6aVGZ52sUtOBJUZovfFFVIK71DyCrmhRoFBA8wKxwSWIdR8tZWEpH.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "엔비디아 관련 최신 금융 뉴스랑 애널리스트들의 투자 의견은 어때?",
         "테슬라의 최근 분기별 손익계산서를 요약해 줘",
@@ -1155,24 +1094,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "263",
-      "totalToolCallCount": "263",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "2",
       "name": "톡캘린더",
       "description": "카카오 톡캘린더에서 일정 및 할일을 조회하거나 생성할 수 있습니다.\n► 일정을 조회하거나 새 일정을 등록할 수 있습니다.\n► 할 일을 조회하거나 새로운 할 일을 추가할 수 있습니다.\n► 생일인 친구를 조회할 수 있습니다.",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/UNacNeulo1Q500tEr6U58UpD6HC0CDtoxBbfBeIzss8AHXWE80jaMMmcrrbinHQxTjjrMhm61BdN3HcNRFdFJ1.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/UNacNeulo1Q500tEr6U58UpD6HC0CDtoxBbfBeIzss8AHXWE80jaMMmcrrbinHQxTjjrMhm61BdN3HcNRFdFJ1.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "오늘 12시에 춘식이와 점심 약속 등록해줘",
         "이번 주 내 일정을 알려줘",
@@ -1317,24 +1245,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "229",
-      "totalToolCallCount": "752",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "5",
       "name": "카카오톡 선물하기",
       "description": "카카오톡 선물하기 기능과 관련된 정보를 조회하거나 선물을 추천받을 수 있습니다.\n► 기념일, 관계, 분위기 등에 맞는 상황별 선물을 추천받을 수 있습니다.\n► 최근 주문한 선물의 내역이나 환불·미사용 선물 정보를 조회할 수 있습니다.\n► 카테고리, 가격대, 키워드 등을 기준으로 인기 선물 아이템을 검색할 수 있습니다.",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/8ZPzlKXHJ72zg9Uk6wK7Tyg130ePoSCKwkWdTVylctVL6E4XmRX6xo0zLTTE99Z8oL0RYupEtzpTZiJ54ZRPXH.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/8ZPzlKXHJ72zg9Uk6wK7Tyg130ePoSCKwkWdTVylctVL6E4XmRX6xo0zLTTE99Z8oL0RYupEtzpTZiJ54ZRPXH.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "내가 아직 안 쓴 선물 알려줘",
         "3만원대 선물 추천해줘!",
@@ -1427,24 +1344,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "226",
-      "totalToolCallCount": "636",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "30",
       "name": "학교 시간표 정보",
       "description": "전국 초등학교, 중학교, 고등학교의 시간표 정보를 조회할 수 있습니다.\n- 오늘 또는 특정 날짜를 지정해서 시간표를 조회할 수 있습니다.\n- 이번주 전체의 시간표를 한번에 조회할 수도 있습니다.\n- 이 MCP 는 공공데이터를 사용합니다. 사용량에 따라서 일시적으로 조회되지 않을 수 있습니다",
       "developerName": "PlayMCP",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/stPkm10BNEMgrG1jGDqKi1ZCIY1TJQTx8YYoamn1TawoaEIpfA30cA7bgHbGbBCPTfqWOlM5eOks969CNmK8KA.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/stPkm10BNEMgrG1jGDqKi1ZCIY1TJQTx8YYoamn1TawoaEIpfA30cA7bgHbGbBCPTfqWOlM5eOks969CNmK8KA.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "압구정초등학교 3학년 2반의 오늘 시간표를 알려줘",
         "대치중학교 2학년 3반 영어 수업은 무슨 요일에 있어?",
@@ -1743,24 +1649,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "217",
-      "totalToolCallCount": "217",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "11",
       "name": "투두메이트",
       "description": "투두메이트에서 할 일 목록을 관리할 수 있습니다.\n► 일정 기간의 할 일의 목록을 불러올 수 있습니다.\n► 할 일을 완료 처리할 수 있습니다.\n► 새로운 할 일을 추가할 수 있습니다.\n► 할 일의 시간 알림을 지정할 수 있습니다.\n► 카테고리 목록을 불러올 수 있습니다.",
       "developerName": "todo mate",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/7g519zsV6UN0QiB0DMC7Rod4DoN1nnBnaXIwfF5YrIBta4mZfkNWCDMxjiTtVmoXqlWNHeQO9TYF98DiYazYHo.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/7g519zsV6UN0QiB0DMC7Rod4DoN1nnBnaXIwfF5YrIBta4mZfkNWCDMxjiTtVmoXqlWNHeQO9TYF98DiYazYHo.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "오늘 투두메이트에서 나의 할 일을 보여줘",
         "내 [투두] 카테고리에 과제 작성 할 일을 등록해줘",
@@ -1946,30 +1841,13 @@
           "description": "투두메이트 사용자의 할 일 카테고리 목록을 불러옵니다.",
           "parameters": []
         }
-      ],
-      "monthlyToolCallCount": "115",
-      "totalToolCallCount": "240",
-      "authConfigSummary": {
-        "tokens": [
-          {
-            "key": "AccessToken",
-            "description": "https://todomate.net 의 [설정] > [인증 토큰]에서 생성 가능합니다."
-          }
-        ],
-        "type": "TOKEN"
-      }
+      ]
     },
     {
       "id": "24",
       "name": "근처 학원을 찾아라",
       "description": "아이엠스쿨 주변학원을 활용해 근처 학원을 검색하여 보여줍니다. \n▶ 지역명이나 학교, 주소등을 기반으로 근처의 학원들을 검색하여 추천받을 수 있습니다.\n▶ 커리큘럼, 학원비, 셔틀버스 유무, 레벨 테스트 등 꼭 필요한 정보를 확인하고 상담예약까지 할 수 있습니다.",
       "developerName": "NHN EDU",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/NDnKZNpiWOLAVer5v7RzjhOyjCjSUtkDxuMi5jvn5ldfb4mF5VZWzkPVs0y1zIVn6HcsYpb3GvJH2jZ3uouDzg.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/NDnKZNpiWOLAVer5v7RzjhOyjCjSUtkDxuMi5jvn5ldfb4mF5VZWzkPVs0y1zIVn6HcsYpb3GvJH2jZ3uouDzg.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "대치동 근처의 좋은 학원들을 알려줘",
         "중계동 은행사거리 근처 좋은 영어 학원들 알려줘",
@@ -1988,24 +1866,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "99",
-      "totalToolCallCount": "99",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "18",
       "name": "tmdb",
       "description": "TMDB API를 이용해 영화 관련 데이터를 조회합니다\n► 이름으로 영화를 검색할 수 있습니다\n► 하루 또는 일주일 사이 인기 있는 영화를 조회할 수 있습니다\n\n- 소스코드: https://github.com/sh-cho/tmdb-workers-mcp-server\n- 이 MCP Server는 오픈소스 프로젝트로, TMDB의 공식 서버가 아닙니다.\n\nACCESS-TOKEN : https://www.themoviedb.org/settings/api",
       "developerName": "vince",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/HAm712n0aKY5RYGvdw6SVoWuJm0XPwihwiRGiDI8utIOT7MUWQDjM2OsYlfMgy5hyxdNtAv9PfRNDNWylrdQ4l.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/HAm712n0aKY5RYGvdw6SVoWuJm0XPwihwiRGiDI8utIOT7MUWQDjM2OsYlfMgy5hyxdNtAv9PfRNDNWylrdQ4l.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "이름에 \"미션 임파서블\"이 들어간 영화 알려줘",
         "오늘 인기 있는 영화 알려줘",
@@ -2036,30 +1903,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "72",
-      "totalToolCallCount": "78",
-      "authConfigSummary": {
-        "tokens": [
-          {
-            "key": "X-TMDB-ACCESS-TOKEN",
-            "description": "TMDB Read Access Token \n(ex. eyJhbGciO...)"
-          }
-        ],
-        "type": "TOKEN"
-      }
+      ]
     },
     {
       "id": "33",
       "name": "논문 줍줍 [논문 기반 팩트 검색]",
       "description": "다양한 학술 논문들의 키워드 기반 검색 결과와 논문 링크를 제공합니다.\n▶ 실생활에 다양한 궁금점을 실제 논문에 기반해서 검색해보세요.\n▶ 데이터 출처: Google Scholar, ArXiv, PubMed\n\n▶ 논문 요약 추가 예정",
       "developerName": "thesockerr@gmail.com",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/dIfoTXOXcbXeFfdBUKjky5JGFxJnvnf0n5RYR06CwC4WMjfoSYrrO7wo92CW0zAojyAMo2NKRzA3PVEVN8B5RP.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/dIfoTXOXcbXeFfdBUKjky5JGFxJnvnf0n5RYR06CwC4WMjfoSYrrO7wo92CW0zAojyAMo2NKRzA3PVEVN8B5RP.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "달리기 할 때 코로 숨쉬는게 좋대 입으로 숨쉬는게 좋대? 논문 검색 해봐",
         "효율적 근성장 운동 루틴 2025년 논문 검색에서 찾아줘",
@@ -2084,24 +1934,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "71",
-      "totalToolCallCount": "71",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "46",
       "name": "페스타 파인더",
       "description": "이 MCP는 FastMCP 라이브러리를 기반으로 하며, 공연예술통합전산망(KOPIS)의 오픈 API를 활용하여 공연 및 축제 정보를 제공합니다. 사용자는 제공되는 도구(get_performance_list, get_performance_detail, get_festival_list)를 사용하여 기간, 조건, 지역 등에 따른 다양한 정보를 쉽게 조회할 수 있습니다.",
       "developerName": "AI튜터",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/FdpuFVnq3n1Q0uln0XXvxXkBQeQK8rN7dRKJv49kY0wZZbcTUMDBm37LWsY28k2jSYjImu5W2TbA9Lo635bYgT.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/FdpuFVnq3n1Q0uln0XXvxXkBQeQK8rN7dRKJv49kY0wZZbcTUMDBm37LWsY28k2jSYjImu5W2TbA9Lo635bYgT.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "이번 주 서울에서 하는 공연 목록을 알려줘.",
         "서울에서 하는 00공연에 대해서 상세히 알려줘.",
@@ -2210,24 +2049,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "67",
-      "totalToolCallCount": "67",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "49",
       "name": "항공톡",
       "description": "채팅으로 인천국제공항의 실시간 정보를 조회할 수 있습니다.\n► 항공편 운항 현황, 출국장 혼잡도, 주차장 정보 등 공항 이용에 필수적인 정보를 실시간으로 확인할 수 있습니다.\n► “KE123편 도착했어?” 또는 “2터미널 주차장 자리 있어?”와 같은 직접적인 질문에 AI가 즉시 답변해 줍니다.\n► “지금 출발하면 1터미널 어디가 제일 한산해?”처럼 질문하면, 실시간 혼잡도 데이터를 바탕으로 가장 여유로운 출국장을 추천받을 수 있습니다.",
       "developerName": "AI튜터",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/6RJxGskaL8kXBdNvfO1tgrUMtOCCLXpwuai09J79I8GLwdYMW1kmVGtpiOR05aQt5KZEauWdjqOpjMPJFNtkTf.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/6RJxGskaL8kXBdNvfO1tgrUMtOCCLXpwuai09J79I8GLwdYMW1kmVGtpiOR05aQt5KZEauWdjqOpjMPJFNtkTf.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "어느 출국장으로 가면 가장 빠르게 출국할 수 있어?",
         "출발 항공편 KE901에 대해서 상세히 알려줘",
@@ -2318,24 +2146,13 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "52",
-      "totalToolCallCount": "52",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     },
     {
       "id": "50",
       "name": "우리 사이",
       "description": "'우리사이'는 사용자가 입력한 두 위치의 중간 지점에서 다양한 장소를 추천합니다.\n► 사용자가 두 지역을 입력하면 중간 지점에 있는 맛집, 카페, 숙박업소 등을 검색할 수 있습니다.",
       "developerName": "AI튜터",
-      "image": {
-        "path": "/komi/upload-files/mcp/images/UTxgxWN6QxZEOwKF4CJhGelYeRsPNh9w3xbaH53pOUBVFiAdobiF9EorGruyMbWYwj36hSux0R81AY1NCIl7ee.png",
-        "fullUrl": "https://t1.kakaocdn.net/komi/upload-files/mcp/images/UTxgxWN6QxZEOwKF4CJhGelYeRsPNh9w3xbaH53pOUBVFiAdobiF9EorGruyMbWYwj36hSux0R81AY1NCIl7ee.png",
-        "cdnUrl": "https://t1.kakaocdn.net"
-      },
-      "status": "APPROVED",
       "starterMessages": [
         "신사동과 압구정동 사이에서 카페를 찾아줘.",
         "성수동과 길음동사이에 친구와 만날 만한 펍을 찾아줘",
@@ -2372,12 +2189,7 @@
             }
           ]
         }
-      ],
-      "monthlyToolCallCount": "27",
-      "totalToolCallCount": "27",
-      "authConfigSummary": {
-        "type": "NONE"
-      }
+      ]
     }
   ]
 }
