@@ -1,33 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>JSON Viewer</title>
+  <meta charset="UTF-8" />
+  <title>JSON Viewer (Tree Read-only, Newlines Visible)</title>
+  <link href="https://cdn.jsdelivr.net/npm/jsoneditor@9.10.0/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.10.0/dist/jsoneditor.min.js"></script>
   <style>
-    body { font-family: monospace; padding: 20px; }
-    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; }
+    html, body { height: 100%; margin: 0; }
+    body { font-family: sans-serif; }
+    #jsoneditor { width: 100%; height: 100vh; }
+
+    /* 문자열 값 안의 실제 줄바꿈을 화면에 보이게 함 */
+    /* 적용 범위를 넉넉하게 잡음(라이브러리 내부 구조에 따라 달라질 수 있으므로 여러 선택자 포함) */
+    .jsoneditor .jsoneditor-value,
+    .jsoneditor .jsoneditor-value * ,
+    .jsoneditor .jsoneditor-value .jsoneditor-value-text {
+      white-space: pre-wrap !important;
+      word-break: break-word;
+    }
+
+    /* 오른쪽 value 패널(있을 경우)도 줄바꿈 보존 */
+    .jsoneditor .jsoneditor-right {
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
-  <h2>JSON Viewer</h2>
-  <div id="viewer">Loading JSON...</div>
+  <div id="jsoneditor">Loading...</div>
 
   <script>
-    // index.html과 같은 경로의 data.json을 불러옴
+    // 문자열 내에 이스케이프된 시퀀스(예: "\\n", "\\r\\n", "\\t")가
+    // 실제 개행/탭 문자로 보이도록 변환하는 재귀 함수
+    function unescapeStrings(obj) {
+      if (typeof obj === 'string') {
+        // "\\r\\n" 먼저 처리, 그 다음 "\\n", "\\t" 등 처리
+        return obj
+          .replace(/\\r\\n/g, '\r\n')
+          .replace(/\\n/g, '\n')
+          .replace(/\\r/g, '\r')
+          .replace(/\\t/g, '\t');
+      } else if (Array.isArray(obj)) {
+        return obj.map(unescapeStrings);
+      } else if (obj && typeof obj === 'object') {
+        const out = {};
+        for (const k in obj) {
+          if (Object.prototype.hasOwnProperty.call(obj, k)) {
+            out[k] = unescapeStrings(obj[k]);
+          }
+        }
+        return out;
+      }
+      return obj;
+    }
+
+    // data.json 불러오기
     fetch('all_desc.json')
       .then(response => {
-        if (!response.ok) {
-          throw new Error("네트워크 응답이 올바르지 않습니다.");
-        }
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
-      .then(data => {
-        document.getElementById("viewer").innerHTML =
-          '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+      .then(rawData => {
+        // 필요하면 문자열 내부의 이스케이프를 실제 개행 등으로 변환
+        const data = unescapeStrings(rawData);
+
+        const container = document.getElementById('jsoneditor');
+        const options = {
+          mode: 'tree',        // tree 모드 (왼쪽 트리 / 오른쪽 값)
+          mainMenuBar: false,
+          navigationBar: false,
+          statusBar: false,
+          onEditable: function () { return false; } // 읽기 전용
+        };
+        const editor = new JSONEditor(container, options);
+        editor.set(data);
+
+        // 처음부터 전부 펼치기
+        try { editor.expandAll(); } catch(e) { /* 무시 */ }
       })
-      .catch(error => {
-        document.getElementById("viewer").innerHTML =
-          "JSON을 불러오는 중 오류 발생: " + error;
+      .catch(err => {
+        document.getElementById('jsoneditor').innerText = 'JSON 불러오기 실패: ' + err;
       });
   </script>
 </body>
