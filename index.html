@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Viewer</title>
+  <style>
+    body { font-family: monospace; padding: 20px; }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>JSON Viewer</h2>
+  <div id="viewer">Loading JSON...</div>
+
+  <script>
+    // index.html과 같은 경로의 data.json을 불러옴
+    fetch('all_desc.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("네트워크 응답이 올바르지 않습니다.");
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById("viewer").innerHTML =
+          '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+      })
+      .catch(error => {
+        document.getElementById("viewer").innerHTML =
+          "JSON을 불러오는 중 오류 발생: " + error;
+      });
+  </script>
+</body>
+</html>
